@@ -1,2 +1,2 @@
 # Sphere
-Team Project 1 for CS 185c
+Final Team Project 1 for CS 185c
