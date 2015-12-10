@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Checkpoint
+  - Trap
+  - Door
+  - Checkpoint2
+  - Trap2
+  - Trap3
+  - Music
+  - Key
+  - Enemy
+  - Wall
+  - Dungeon2Gate
+  - Dungeon2Key
+  - Dungeon5Gate
+  - Dungeon5Key
+  - Dungeon3Gate
+  - Target
+  - Spawner1
+  - Dungeon4Key
+  - Dungeon4Gate
+  - Spawner2
+  - Shotgun
+  - Dungeon6Key
+  - Dungeon6Gate
+  - Dungeon7Key
+  - Dungeon7Gate
+  - UltimaGun
+  - Dungeon8Key
+  - Dungeon8Gate
+  - Checkpoint3
+  - Cheatwall1
+  - Boost
+  - Boostground
+  - redthing
+  - bigboss
+  - Enemy2
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
