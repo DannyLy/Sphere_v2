@@ -231,7 +231,11 @@ public class Paddle : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			transform.position = new Vector3 (90F, 5.52f, 120f);
 		}
-		if (collisionInfo.gameObject.tag == "Key") {
+		if (collisionInfo.gameObject.tag == "Key" || collisionInfo.gameObject.tag == "Dungeon2Key" || 
+		    collisionInfo.gameObject.tag == "Dungeon5Key" || collisionInfo.gameObject.tag == "Dungeon6Key" ||
+		    collisionInfo.gameObject.tag == "Dungeon7Key" || collisionInfo.gameObject.tag == "Dungeon8Key" || 
+		    collisionInfo.gameObject.tag == "Shotgun" || collisionInfo.gameObject.tag == "Target")
+		{
 			source.PlayOneShot(lootsound, 1F);
 		}
 
