@@ -15,7 +15,7 @@ public class Paddle : MonoBehaviour {
 	public float airSpeed = 1000f;
 	public int checkpoint = 0;
 	public int checkpoint2 = 0;
-	public int checkpoint3 = 4;
+	public int checkpoint3 = 0;
 	public AudioClip jumpingsound;
 	private AudioSource source;
 	public AudioClip checkpointsound;
@@ -50,43 +50,44 @@ public class Paddle : MonoBehaviour {
 		//movement *= (Mathf.Abs (movement.x) == 1 && Mathf.Abs (movement.z) == 1) ? .7f : 1;
 
 		if (isGrounded == true) {
-			rb.velocity = (movement * speed * Time.deltaTime);
+			rb.AddForce (movement * speed * Time.deltaTime);
 		} else if (isGrounded == false) {
 			rb.AddForce (movement * airSpeed * Time.deltaTime);
 		}
 		if (Input.GetButton ("Jump") && isGrounded == true) {
+			source.PlayOneShot(jumpingsound,1F);
 			Vector3 jumping = new Vector3 (0, jumpSpeed, 0);
 			rb.AddForce (jumping);
-			source.PlayOneShot(jumpingsound,1F);
 
 		}
+
 		if (transform.position.y < -10 && Application.loadedLevelName == "Level_Endless") {
 			Application.LoadLevel("DeadScreen");
 		}
-
-		if (transform.position.y < -10 && checkpoint == 0 && checkpoint2 == 0 && checkpoint3 == 0) {
-			rb.velocity = Vector3.zero;
-			transform.position = new Vector3 (0, 2, 0);
-		}
-		else if(transform.position.y <-10 && checkpoint == 1)
+		 if(transform.position.y <-10 && checkpoint == 1)
 		{
 			rb.velocity = Vector3.zero;
-			transform.position = new Vector3(0,2,26);
+			transform.position = new Vector3(1.694f,4.6f,-4f);
 		}
 		else if(transform.position.y <-10 && checkpoint == 2)
 		{
 			rb.velocity = Vector3.zero;
-			transform.position = new Vector3(0,2,38);
+			transform.position = new Vector3(3.45f,-2.7f,38f);
 		}
 		else if (transform.position.y < -10 && checkpoint == 3)
 		{
 			rb.velocity = Vector3.zero;
-			transform.position = new Vector3 (25.39f, 2.22f, 75.41f);
+			transform.position = new Vector3 (13f, 2f, 58f);
 		}
 		else if (transform.position.y < -10 && checkpoint == 4)
 		{
 			rb.velocity = Vector3.zero;
-			transform.position = new Vector3 (32.92f, -7.63f, 104f);
+			transform.position = new Vector3 (25f, 2f, 75f);
+		}
+		else if (transform.position.y < -10 && checkpoint == 5)
+		{
+			rb.velocity = Vector3.zero;
+			transform.position = new Vector3 (35f, -7.63f, 104f);
 		}
 		else if (transform.position.y < -10 && checkpoint2 == 1)
 		{
@@ -123,7 +124,10 @@ public class Paddle : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			transform.position = new Vector3 (141F, 5.52f, 60f);
 		} 
-
+		if (transform.position.y < -10) {
+			rb.velocity = Vector3.zero;
+			transform.position = new Vector3 (0, 2, 0);
+		}
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -228,14 +232,14 @@ public class Paddle : MonoBehaviour {
 		}
 		else if (collisionInfo.other.gameObject.tag == "redthing")
 		{
+			source.PlayOneShot (metalbang, 1F);
 			rb.velocity = Vector3.zero;
 			transform.position = new Vector3 (90F, 5.52f, 120f);
 		}
-		if (collisionInfo.gameObject.tag == "Key" || collisionInfo.gameObject.tag == "Dungeon2Key" || 
+		if (collisionInfo.gameObject.tag == "Key"  || collisionInfo.gameObject.tag == "Dungeon2Key" || 
 		    collisionInfo.gameObject.tag == "Dungeon5Key" || collisionInfo.gameObject.tag == "Dungeon6Key" ||
 		    collisionInfo.gameObject.tag == "Dungeon7Key" || collisionInfo.gameObject.tag == "Dungeon8Key" || 
-		    collisionInfo.gameObject.tag == "Shotgun" || collisionInfo.gameObject.tag == "Target")
-		{
+		    collisionInfo.gameObject.tag == "Shotgun" || collisionInfo.gameObject.tag == "Target") {
 			source.PlayOneShot(lootsound, 1F);
 		}
 

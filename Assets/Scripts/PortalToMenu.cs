@@ -13,7 +13,7 @@ public class PortalToMenu : MonoBehaviour {
 
 	//chances scene on collision
 	void OnTriggerEnter() {
-		Application.LoadLevel ("GameOver");
+		Application.LoadLevel ("Level_3");
 	}
 }
 
